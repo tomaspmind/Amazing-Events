@@ -17,9 +17,10 @@ createApp( {
         .then(response => response.json())
         .then(data => {
             this.amazingInfo = data
-            this.amazingCard = data.events
+            this.amazingCard = data.events.filter( upcoming => upcoming.date <= this.amazingInfo.currentDate )
             this.categorys = [...new Set(this.amazingCard.map(card => card.category))]
             this.filterCard = [...this.amazingCard]
+            console.log(this.amazingCard)
         })
         .catch(error => error.message)
     },

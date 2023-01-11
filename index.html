@@ -71,7 +71,7 @@ crossorigin="anonymous">
             </div>
         </div>
         <div id="section-cards">
-            <div v-if="amazingInfo" class="card" style="width: 18rem;" v-for="card of filterCard">
+            <div v-if="filterCard" class="card" style="width: 18rem;" v-for="card of filterCard">
                 <img v-bind:src="card.image" class="card-img-top" v-bind:alt="card.name">
                 <div class="card-body">
                     <div>
@@ -80,10 +80,11 @@ crossorigin="anonymous">
                     </div>
                     <div class="div-cartas">
                         <h5>Price: ${{card.price}}</h5>
-                        <a href="./events-card.html?idCarta={{card._id}}" class="btn btn-danger">View more..</a>
+                        <a :href='"./events-card.html?idCarta="+card._id' class="btn btn-danger">View more..</a>
                     </div>
                 </div>
             </div>
+            <p v-if="filterCard && !filterCard.length">No hay resultados en tu busqueda</p>
         </div>
     </div>
 </main>
