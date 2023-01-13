@@ -3,7 +3,6 @@ const { createApp } = Vue
 createApp( {
 	data(){
 		return {
-            
             amazingInfo : undefined,
             amazingCard : undefined,
             categorys : undefined,
@@ -33,7 +32,5 @@ createApp( {
                 this.filterCard = filterPerCheck
             }
         }
-
     },
-    
 }).mount("#app")

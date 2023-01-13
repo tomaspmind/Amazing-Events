@@ -65,9 +65,9 @@ crossorigin="anonymous">
             </thead>
             <tbody id="tbody1">
               <tr>
-                <td id="mayorporcentaje"></td>
-                <td id="menorporcentaje"></td>
-                <td id="eventomayor"></td>
+                <td >{{maxMinPercentage[0].name + maxMinPercentage[0].percentage}}</td>
+                <td >{{maxMinPercentage[1].name + maxMinPercentage[1].percentage}}</td>
+                <td >{{maxMinPercentage[2].name + maxMinPercentage[2].capacity}}</td>
               </tr>
             </tbody>
           </table>
@@ -82,12 +82,12 @@ crossorigin="anonymous">
               <td>Percentage of attendace</td>
             </tr>
           </thead>
-          <tbody id="tbody2">
-            <tr v-for="">
-              <td>{{ }}</td>
-              <td></td>
-              <td></td>
-            </tr>
+          <tbody>
+            <tr v-for = "event of upcomingFiltered">
+              <td>{{event.category}}</td>
+              <td>$ {{revenues(event.estimate, event.price)}}</td>
+              <td>{{percentageOfAttendance(event.capacity, event.estimate)}}%</td>
+          </tr>
           </tbody>
         </table>
         
@@ -102,12 +102,12 @@ crossorigin="anonymous">
                 <td>Percentage of attendace</td>
               </tr>
             </thead>
-            <tbody id="tbody3">
-              <tr v-for="">
-                <td>{{ }}</td>
-                <td></td>
-                <td></td>
-              </tr>
+            <tbody>
+              <tr v-for = "event of pastFiltered">
+                <td>{{event.category}}</td>
+                <td>$ {{revenues(event.assistance, event.price)}}</td>
+                <td>{{percentageOfAttendance(event.capacity, event.assistance)}}%</td>
+            </tr>
             </tbody>
           </table>
     </div>

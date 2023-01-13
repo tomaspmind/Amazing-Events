@@ -3,7 +3,6 @@ const { createApp } = Vue
 createApp( {
 	data(){
 		return {
-            
             amazingInfo : undefined,
             cards : undefined,
 		}
@@ -26,8 +25,6 @@ createApp( {
         crearDetaills : function (info) {
             let guardado = this.llamarURL()
             this.cards = info.events.find(objeto => objeto._id == guardado)
-
         },
     },
-    
 }).mount("#app")
